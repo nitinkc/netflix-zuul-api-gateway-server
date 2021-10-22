@@ -160,3 +160,10 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+bin/*
+build/*
+.gradle/*
+logs/*
+target/*
+classes/*

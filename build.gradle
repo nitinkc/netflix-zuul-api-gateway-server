@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.12'
+    id 'org.springframework.boot' version '3.0.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -7,8 +7,6 @@ plugins {
 group = 'com.nitin.microservices.learning.zuulGateServer'
 version = '0.0.1-SNAPSHOT'
 description = 'netflix-zuul-api-gateway-server'
-sourceCompatibility = '11'
-
 
 configurations {
     compileOnly {
@@ -20,29 +18,31 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven { url = uri('https://repo.spring.io/milestone') }
-    maven { url = uri('http://repo.maven.apache.org/maven2') }
+    maven { url = uri('http://repo.maven.apache.org/maven2')
+        allowInsecureProtocol=true}
 }
 
 ext {
-    set('springCloudVersion', "2020.0.4")
+    set('springCloudVersion', "2022.0.3")
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:3.0.6'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
-
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-zuul', version: '2.2.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.10.RELEASE'
 
 }
 

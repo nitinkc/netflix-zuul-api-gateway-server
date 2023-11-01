@@ -16,7 +16,6 @@ configurations {
 
 repositories {
     mavenCentral()
-    mavenLocal()
     maven { url = uri('https://repo.spring.io/milestone') }
     maven { url = uri('http://repo.maven.apache.org/maven2')
         allowInsecureProtocol=true}
@@ -41,8 +40,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
+
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.10.RELEASE'
+// https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
 }
 

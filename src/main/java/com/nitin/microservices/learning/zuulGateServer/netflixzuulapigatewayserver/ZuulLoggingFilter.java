@@ -6,7 +6,10 @@ import com.netflix.zuul.exception.ZuulException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 /**
  * Created by nitin on Wednesday, November/20/2019 at 1:26 AM
@@ -33,8 +36,9 @@ public class ZuulLoggingFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        HttpServletRequest request;
-//        request = RequestContext.getCurrentContext().getRequest();
+//        RequestContext ctx = RequestContext.getCurrentContext();
+//        HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+//
 //        logger.info("request -> {} request uri -> {}", request, request.getRequestURI());
 //        System.out.println("request -> {} request uri -> {}" + request + request.getRequestURI());
         return null;
